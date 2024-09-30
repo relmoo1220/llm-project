@@ -3,8 +3,9 @@ from flask_cors import CORS
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from llm_guard.input_scanners import BanTopics, PromptInjection, Toxicity, TokenLimit, Language
+from llm_guard.output_scanners import LanguageSame
 from llm_guard.input_scanners.language import MatchType
-from llm_guard.output_scanners import NoRefusal, Relevance, Sensitive
+from llm_guard.output_scanners import Relevance, Sensitive
 from llm_guard import scan_prompt
 from llm_guard import scan_output
 
@@ -21,7 +22,7 @@ input_scanners = [
 ]
 
 output_scanners = [
-    Language(valid_languages=["en"], match_type=MatchType.FULL),
+    LanguageSame(),
     Relevance(),
     Sensitive()
 ]
@@ -74,7 +75,7 @@ def generate():
     if any(not result for result in results_valid.values()):
         return jsonify({"status": "ERROR", "response": "The output contains prohibited topics.", "risk_score": results_score}), 200
 
-    return jsonify({"status": "OK", "response": response})
+    return jsonify({"status": "OK", "response": sanitized_response_text})
 
 # API for when user wants to check what are the emergency resources for mental health help
 @app.route("/emergency-resources", methods=["GET"])

@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
   import { botReplyStore, isLoadingStore } from "../stores/globalStores";
-  import { tr } from "@faker-js/faker";
 
   const apiUrl = "http://127.0.0.1:5000";
   let botReply: string;
