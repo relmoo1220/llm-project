@@ -68,7 +68,9 @@ npm install
 npm run dev
 ```
 
-## Talking more about the LLM chose (dolphin-phi)
+---
+
+## Talking more about the LLM chosen (dolphin-phi)
 
 In this project, we are utilizing dolphin-phi, an uncensored language model (LLM). The rationale for selecting this LLM is to demonstrate the effectiveness of LLM-Guard, which ensures the chatbot's output adheres to strict content guidelines. By using an uncensored LLM like dolphin-phi, we can test and validate the capabilities of LLM-Guard in real-time. This allows us to detect and mitigate potentially harmful or inappropriate content, ensuring the chatbot remains safe and aligned with ethical standards, even when using an unrestricted LLM.
 
@@ -98,3 +100,13 @@ For output filtering, we employ the following scanners:
 - LanguageSame: Ensures that the output is in English.
 - Relevance: Assesses the relevance of the model's response to the user’s input.
 - Sensitive: Checks for potentially sensitive content that should be flagged or moderated.
+
+---
+
+## Conclusion
+
+The Mental Health Chatbot is designed to provide a supportive and secure environment for users seeking assistance with mental health concerns. By integrating advanced technologies like SvelteKit, Flask, Ollama, LangChain, and LLM-Guard, we ensure a robust and responsive user experience while prioritizing safety and ethical considerations.
+
+This project not only showcases the potential of state-of-the-art language models in addressing sensitive topics but also highlights the importance of implementing effective moderation and content filtering mechanisms. With carefully configured input and output scanners, our chatbot is equipped to handle a variety of interactions while mitigating risks associated with harmful content.
+
+Through this application, we aim to contribute positively to the mental health landscape, providing users with reliable information and support when they need it most. We welcome feedback and suggestions for improvement as we continue to enhance the chatbot's capabilities and ensure it remains a valuable resource for mental health support.
